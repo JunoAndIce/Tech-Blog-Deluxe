@@ -1,7 +1,9 @@
+// Code for handling comments.
+// POST to the api.
 const commentFormHandler = async function (event) {
 	event.preventDefault();
 
-	const blog_id = document.querySelector('.new-comment-form').dataset.blog_id;
+	const blog_id = document.querySelector('.comment-box').dataset.blog_id;
 
 	const text = document.querySelector('#comment').value.trim();
 	// console.log(blogId, text);
@@ -21,5 +23,5 @@ const commentFormHandler = async function (event) {
 };
 
 document
-	.querySelector('.new-comment-form')
+	.querySelector('.comment-box')
 	.addEventListener('submit', commentFormHandler);

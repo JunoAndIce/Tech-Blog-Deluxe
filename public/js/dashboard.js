@@ -21,11 +21,11 @@ const newFormHandler = async (event) => {
   }
 };
 
-const delButtonHandler = async (event) => {
+// Delete Button
+const deleteButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
   
-
     const response = await fetch(`/api/blogs/${id}`, {
       method: 'DELETE',
     });
@@ -38,7 +38,8 @@ const delButtonHandler = async (event) => {
   }
 };
 
-const updButtonHandler = async (event) => {
+// Update Button
+const updateButtonHandler = async (event) => {
   event.preventDefault();
 
   const name = document.querySelector('#blog-name').value.trim();
@@ -63,12 +64,12 @@ const updButtonHandler = async (event) => {
 };
 
 document.querySelectorAll('.blog-update').forEach(button => {
-  button.addEventListener('click', updButtonHandler);
+  button.addEventListener('click', updateButtonHandler);
 });
 
 
 document.querySelector('.new-blog-form').addEventListener('submit', newFormHandler);
 
 document.querySelectorAll('.blog-delete').forEach(button => {
-  button.addEventListener('click', delButtonHandler);
+  button.addEventListener('click', deleteButtonHandler);
 });
